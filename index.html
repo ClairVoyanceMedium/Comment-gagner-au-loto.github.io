@@ -396,8 +396,104 @@
       ]
     }
   </script>
-  
 </head>
+<!-- Balise Google Ads Universelle avec Remarketing et Suivi des Conversions -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
+<script>
+  (function() {
+    // Fonction pour initialiser Google Ads avec des paramètres dynamiques
+    const initGoogleAds = ({
+      conversionId,
+      conversionLabel = null,
+      transactionValue = null,
+      currency = 'EUR'
+    }) => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // Configuration de base pour Google Ads
+      gtag('config', `AW-${conversionId}`);
+
+      // Ajout de Remarketing (par défaut sur chaque page)
+      gtag('event', 'page_view', {
+        'send_to': `AW-${conversionId}`
+      });
+
+      // Suivi des conversions (si conversionLabel et transactionValue sont fournis)
+      if (conversionLabel && transactionValue !== null) {
+        gtag('event', 'conversion', {
+          'send_to': `AW-${conversionId}/${conversionLabel}`,
+          'value': transactionValue,
+          'currency': currency
+        });
+      }
+    };
+
+    // Exemple d'utilisation : Remplacez par votre CONVERSION_ID
+    const googleAdsConfig = {
+      conversionId: 'AW-00000000000', // Remplacer par votre ID Google Ads
+      conversionLabel: 'CONVERSION_LABEL_OPTIONNEL', // Facultatif
+      transactionValue: 0 // Remplacer par la valeur transactionnelle si disponible
+    };
+    initGoogleAds(googleAdsConfig);
+  })();
+</script>
+
+<!-- Script Asynchrone pour Remarketing -->
+<script>
+  (function() {
+    const conversionId = 'AW-00000000000'; // Remplacez par votre Conversion ID
+
+    var script = document.createElement('script');
+    script.src = `https://www.googleadservices.com/pagead/conversion_async.js?id=${conversionId}`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    script.onload = function() {
+      // Paramètres de remarketing
+      var google_trackConversion = {
+        google_conversion_id: conversionId,
+        google_custom_params: window.google_tag_params || {},
+        google_remarketing_only: true
+      };
+    };
+  })();
+</script>
+
+<!-- Balise de Sécurité (NoScript) pour Remarketing Google Ads -->
+<noscript>
+  <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt=""
+    src="https://www.googleadservices.com/pagead/conversion/CONVERSION_ID/?value=0&currency_code=EUR&label=CONVERSION_LABEL_OPTIONNEL&guid=ON&script=0">
+  </div>
+</noscript>
+    
+      <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P3J6SXCH');</script>
+<!-- End Google Tag Manager -->
+
+    
+    <!-- Google Analytics 4  -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FVTD4ET68"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Configuration de Google Analytics 4 avec suivi multi-domaines
+  gtag('config', 'G-6FVTD4ET68', {
+    'send_page_view': true, // Active l'envoi des pages vues par défaut
+    'linker': {
+      'domains': ['site1.com', 'site2.com', 'site3.com'] // Remplacez par vos domaines
+    }
+  });
+</script>
+  
 <body>
   <div class="container">
     <header>
@@ -657,5 +753,11 @@
       Activez JavaScript pour une expérience complète. Grille statique : 5 - 12 - 19 - 26 - 33 - Chance : 8.
     </div>
   </noscript>
+  
+!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3J6SXCH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
 </body>
 </html>
