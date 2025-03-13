@@ -540,7 +540,7 @@
       let daysAhead = drawDays.find(d => d >= day) - day || (7 - day + drawDays[0]);
       if (daysAhead < 0) daysAhead += 7;
       now.setDate(now.getDate() + daysAhead);
-      return now.toLocaleDateString('fr-FR') + ' | 19:30';
+      return now.toLocaleDateString('fr-FR') + ' | 20:20';
     }
 
     // Pré-calcul des éléments DOM
