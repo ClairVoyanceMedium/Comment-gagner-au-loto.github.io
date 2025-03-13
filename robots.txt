@@ -1,16 +1,15 @@
 # robots.txt perfectionné pour https://clairvoyancemedium.github.io/Comment-gagner-au-loto.github.io/
-# Objectif : Leader mondial en IA, assistants vocaux et SEO - Horizon 2025 et au-delà
+# Objectif : Leader mondial en IA, assistants vocaux et SEO - Horizon 2025
 
-# Directive générale pour tous les robots : exploration complète par défaut
+# Directives générales pour tous les robots
 User-agent: *
 Allow: /
-Disallow: /private/           # Blocage des dossiers sensibles éventuels
-Disallow: /admin/            # Protection préventive
-Disallow: /cgi-bin/          # Inutile sur GitHub Pages, mais sécurisé
-Disallow: /test/             # Blocage des zones de test potentielles
-Disallow: /*?*               # Évite l'indexation des URL avec paramètres inutiles
+Disallow: /private/           # Protection des dossiers sensibles
+Disallow: /admin/             # Accès restreint aux zones administratives
+Disallow: /test/              # Exclusion des zones de test
+Disallow: /*?*                # Évite l’indexation des URL avec paramètres inutiles
 
-# Autorisation explicite des ressources multimédias pour recherches visuelles/vidéo
+# Autorisation explicite des ressources multimédias pour une indexation avancée
 Allow: /*.jpg$
 Allow: /*.png$
 Allow: /*.webp$
@@ -18,12 +17,26 @@ Allow: /*.gif$
 Allow: /*.mp4$
 Allow: /*.webm$
 
-# Optimisation pour Google Mobile-First Index
+# Optimisation pour la recherche mobile
 User-agent: Googlebot-Mobile
 Allow: /
-Allow: /mobile/              # Préparation pour une section mobile dédiée
+Allow: /mobile/              # Section mobile dédiée
+Disallow: /private/
+Disallow: /admin/
+Disallow: /test/
+Disallow: /*?*
 
-# Support avancé des assistants vocaux et IA modernes
+# Moteurs de recherche prioritaires (mondiaux et francophones)
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: Qwantbot           # Ciblage renforcé pour le marché francophone
+Allow: /
+User-agent: DuckDuckBot
+Allow: /
+
+# Assistants vocaux et IA modernes (et futures technologies)
 User-agent: Google-Assistant
 Allow: /
 User-agent: Alexa
@@ -34,42 +47,21 @@ User-agent: ChatGPT-User
 Allow: /
 User-agent: Grok-User
 Allow: /
-User-agent: Gemini-User      # Anticipation des IA futures (ex. Google Gemini)
-
-# Indexation Google News pour une portée maximale
-User-agent: Googlebot-News
+User-agent: Gemini-User         # Anticipation des IA émergentes
 Allow: /
 
-# Moteurs de recherche clés (mondiaux et francophones)
-User-agent: Googlebot
-Allow: /
-User-agent: Bingbot
-Allow: /
-User-agent: Qwantbot         # Ciblage renforcé pour la France
-Allow: /
-User-agent: DuckDuckBot
-Allow: /
-User-agent: Ecosia           # Moteur écoresponsable en croissance
-Allow: /
-
-# Blocage des robots indésirables ou consommateurs de bande passante
+# Blocage des robots indésirables et des scrapers agressifs
 User-agent: Baiduspider
 Disallow: /
 User-agent: YandexBot
 Disallow: /
-User-agent: MJ12bot          # Bot de scraping non pertinent
+User-agent: MJ12bot
 Disallow: /
-User-agent: AhrefsBot        # Blocage optionnel selon stratégie
+User-agent: AhrefsBot
 Disallow: /
 
-# Optimisation pour les partenaires publicitaires et IA analytiques
-User-agent: Mediapartners-Google
-Allow: /
-User-agent: AdsBot-Google
-Allow: /
+# Paramètre optionnel de crawl-delay pour réduire la charge serveur
+Crawl-delay: 5
 
-# Sitemap pour une indexation ultra-rapide et exhaustive
+# Sitemap pour une indexation exhaustive et ultra-rapide
 Sitemap: https://clairvoyancemedium.github.io/Comment-gagner-au-loto.github.io/sitemap.xml
-
-# Directive futuriste : crawl-delay pour gérer la charge (optionnel)
-Crawl-delay: 5               # Limite la fréquence pour les robots génériques
