@@ -4,10 +4,10 @@
 # Directives générales pour tous les robots
 User-agent: *
 Allow: /
-Disallow: /private/           # Protection des dossiers sensibles
-Disallow: /admin/             # Accès restreint aux zones administratives
-Disallow: /test/              # Exclusion des zones de test
-Disallow: /*?*                # Évite l’indexation des URL avec paramètres inutiles
+Disallow: /private/          # Protection des dossiers sensibles
+Disallow: /admin/            # Accès restreint aux zones administratives
+Disallow: /test/             # Exclusion des zones de test
+Disallow: /*?* # Évite l’indexation des URL avec paramètres inutiles
 
 # Autorisation explicite des ressources multimédias pour une indexation avancée
 Allow: /*.jpg$
@@ -21,17 +21,13 @@ Allow: /*.webm$
 User-agent: Googlebot-Mobile
 Allow: /
 Allow: /mobile/              # Section mobile dédiée
-Disallow: /private/
-Disallow: /admin/
-Disallow: /test/
-Disallow: /*?*
 
 # Moteurs de recherche prioritaires (mondiaux et francophones)
 User-agent: Googlebot
 Allow: /
 User-agent: Bingbot
 Allow: /
-User-agent: Qwantbot           # Ciblage renforcé pour le marché francophone
+User-agent: Qwantbot          # Ciblage renforcé pour le marché francophone
 Allow: /
 User-agent: DuckDuckBot
 Allow: /
@@ -47,7 +43,7 @@ User-agent: ChatGPT-User
 Allow: /
 User-agent: Grok-User
 Allow: /
-User-agent: Gemini-User         # Anticipation des IA émergentes
+User-agent: Gemini-User          # Anticipation des IA émergentes
 Allow: /
 
 # Blocage des robots indésirables et des scrapers agressifs
@@ -55,13 +51,10 @@ User-agent: Baiduspider
 Disallow: /
 User-agent: YandexBot
 Disallow: /
-User-agent: MJ12bot
-Disallow: /
-User-agent: AhrefsBot
-Disallow: /
 
-# Paramètre optionnel de crawl-delay pour réduire la charge serveur
-Crawl-delay: 5
+# Suppression des robots d'analyse de liens et du crawl-delay (non supporté par Google)
+# MJ12bot et AhrefsBot sont utiles pour l'analyse SEO
+# Crawl-delay n'est pas supporté par Googlebot
 
 # Sitemap pour une indexation exhaustive et ultra-rapide
 Sitemap: https://clairvoyancemedium.github.io/Comment-gagner-au-loto.github.io/sitemap.xml
