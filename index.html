@@ -261,8 +261,8 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 50px;
-      height: 50px;
+      width: 70px; /* Augmentation de la taille */
+      height: 70px; /* Augmentation de la taille */
       background: var(--gold);
       border: 2px solid var(--dark-gold);
       border-radius: 50%;
@@ -274,8 +274,8 @@
       touch-action: none;
     }
     #draggableContact svg {
-      width: 24px;
-      height: 24px;
+      width: 32px; /* Augmentation de la taille */
+      height: 32px; /* Augmentation de la taille */
       fill: var(--bg-dark);
     }
     :focus {
@@ -340,12 +340,19 @@
         font-size: 1.5rem;
       }
       #draggableContact {
-        width: 40px;
-        height: 40px;
+        width: 60px; /* Augmentation de la taille pour mobile */
+        height: 60px; /* Augmentation de la taille pour mobile */
         cursor: default;
       }
       .subscribe-section form {
         flex-direction: column;
+      }
+      .carousel-item {
+        padding: 1rem; /* Réduction du padding pour mobile */
+      }
+      .carousel-prev,
+      .carousel-next {
+        padding: 0.3rem 0.8rem; /* Réduction de la taille des boutons pour mobile */
       }
     }
     section[loading="lazy"] {
@@ -354,6 +361,14 @@
     }
     section[loading="lazy"].loaded {
       opacity: 1;
+    }
+    /* Effet de clignotement pour le bouton "Faire un don" */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .don-btn {
+      animation: blink 1.5s infinite;
     }
   </style>
 
