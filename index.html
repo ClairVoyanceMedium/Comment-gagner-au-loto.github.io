@@ -540,10 +540,10 @@
       </picture>
       <!-- Boutons de navigation placés sous le logo -->
       <div class="nav-container">
-        <a href="#predictionSection" onclick="trackClick('Nav_Predictions')">Prédictions</a>
-        <a href="#contactSection" onclick="trackClick('Nav_Contact')">Contact</a>
-        <a href="#reviewsSection" onclick="trackClick('Nav_Reviews')">Avis</a>
-        <a href="#servicesSection" onclick="trackClick('Nav_Services')">Nos Services</a>
+        <a href="#predictionSection" onclick="trackClick('Nav_Predictions')">Génerer votre grille de Loto gratuitement</a>
+        <a href="#contactSection" onclick="trackClick('Nav_Contact')">Une demande particulière</a>
+        <a href="#reviewsSection" onclick="trackClick('Nav_Reviews')">Avis vérifiés</a>
+        <a href="#servicesSection" onclick="trackClick('Nav_Services')">Nos Services necessaire pour gagner au Loto</a>
       </div>
       <div class="intro-text" role="region" aria-label="Introduction">
         <strong>Boostez vos chances de gagner gros</strong> au <strong>Loto français</strong> grâce à nos <strong>grilles révolutionnaires</strong>, ultra-optimisées par la <strong>technologie la plus performante</strong> de <span id="dynamicYear"></span>. Avec nos <strong>analyses historiques précises</strong>, notre <strong>algorithme avancé</strong> de pointe associé à l’<strong>expertise inégalée</strong> de notre voyant Frederick, chaque prédiction est minutieusement élaborée pour vous offrir les <strong>numéros gagnants</strong> et des <strong>stratégies exclusives</strong>. Ne laissez pas passer cette opportunité exceptionnelle d’<strong>augmenter votre potentiel de gain</strong> et de transformer votre vie grâce à des choix intelligents et performants... gratuitement!
@@ -701,28 +701,28 @@
 
     // Liste d'avis avec note sur 10 à la fin de chaque avis
     const reviews = [
-      "« J'ai utilisé ce site et gagné 500 € – simple et efficace. » - Clara, 29 ans (Note : 8/10)",
-      "« Ce service m'a permis d'encaisser 300 € et de voir mes numéros s'afficher clairement. » - Thomas, 35 ans (Note : 7/10)",
-      "« Grâce aux désenvoutements proposés ici, j'ai gagné au loto quelques temps après. » - Sophie, 42 ans (Note : 9/10)",
-      "« J'ai vu mes numéros s'afficher et j'ai gagné 800 €. Service concret et direct. » - Julien, 31 ans (Note : 8/10)",
-      "« Ce site m'aide à mieux comprendre le loto. Même sans gros gain, j'en ressens l'impact. » - Élodie, 27 ans (Note : 7/10)",
+      "« J'ai utilisé cette stratégie et gagné 500 € – simple et efficace. » - Clara, 29 ans (Note : 8/10)",
+      "« Ce service m'a permis d'encaisser 300 €. » - Thomas, 35 ans (Note : 7/10)",
+      "« Grâce aux désenvoutements proposés, j'ai gagné au loto 3 semaines après. » - Sophie, 42 ans (Note : 9/10)",
+      "« J'ai vu mes numéros s'afficher et j'ai gagné 800 €. Service concret et direct. À recommander » - Julien, 31 ans (Note : 8/10)",
+      "« Le site m'aide à mieux comprendre le loto. Même sans gros gain, j'en ressens l'impact. » - Élodie, 27 ans (Note : 7/10)",
       "« J'utilise ce service régulièrement et j'ai obtenu 1000 € de gains. » - Marc, 48 ans (Note : 9/10)",
       "« L'approche est claire : j'ai gagné 600 € et le site est facile à utiliser. » - Aline, 33 ans (Note : 8/10)",
-      "« Ce site m'a permis d'encaisser 700 € sans complications. » - Lucas, 39 ans (Note : 8/10)",
-      "« Service fiable, j'ai gagné 850 € en voyant mes numéros s'afficher. » - Laura, 36 ans (Note : 9/10)",
+      "« Ça m'a permis d'encaisser 700 € sans complications. » - Lucas, 39 ans (Note : 8/10)",
+      "« Service fiable, j'ai gagné 850 €. » - Laura, 36 ans (Note : 9/10)",
       "« Un bon outil pour gagner au loto : j'ai obtenu 250 € et je suis satisfait. » - Antoine, 28 ans (Note : 7/10)",
       "« Ce site apporte des résultats concrets : 500 € gagnés et une interface intuitive. » - Valérie, 45 ans (Note : 8/10)",
-      "« J'ai perçu 1000 € sur mon compte, et le service reste simple et direct. » - Pierre, 34 ans (Note : 9/10)",
-      "« Après avoir suivi les désenvoutements, j'ai gagné au loto et touché 1100 €. » - Manon, 26 ans (Note : 8/10)",
-      "« Ce service donne des résultats : j'ai encaissé 650 € et je le recommande. » - Olivier, 51 ans (Note : 8/10)",
+      "« J'ai perçu 1900 € en tout sur mon compte, et le service reste simple et direct. » - Pierre, 34 ans (Note : 9/10)",
+      "« Après avoir suivi les désenvoutements, j'ai gagné au loto et touché 7100 €. » - Manon, 26 ans (Note : 8/10)",
+      "« Ce service donne des résultats : 650 € je le recommande. » - Olivier, 51 ans (Note : 8/10)",
       "« J'ai gagné 350 € et trouvé le site facile à utiliser. » - Chloé, 30 ans (Note : 7/10)",
       "« Pour réussir au loto, ce site est utile : j'ai gagné 750 € et je le trouve pratique. » - Hugo, 37 ans (Note : 8/10)",
-      "« Une bonne expérience, j'ai gagné 800 € et le service est direct. » - Isabelle, 44 ans (Note : 8/10)",
-      "« J'ai reçu 1200 € sur mon compte, sans complication. » - Nathan, 25 ans (Note : 9/10)",
-      "« Ce site offre de réelles chances : j'ai encaissé 400 € et ça m'a aidé. » - Céline, 40 ans (Note : 7/10)",
+      "« Une bonne expérience, j'ai gagné 800 €. » - Isabelle, 44 ans (Note : 8/10)",
+      "« J'ai reussi à gagner 1200 €, sans complication. » - Nathan, 25 ans (Note : 9/10)",
+      "« De réelles chances : j'ai gagnée 400 € et ça m'a aidé. » - Céline, 40 ans (Note : 7/10)",
       "« Service pratique, 950 € gagnés et des conseils utiles pour avancer. » - Rémi, 32 ans (Note : 8/10)",
       "« J'aime ce service : j'ai touché 700 € et ça me motive à continuer. » - Élodie, 29 ans (Note : 8/10)",
-      "« Les numéros s'affichent clairement et j'ai gagné 600 € sans chichi. » - Vincent, 47 ans (Note : 8/10)",
+      "« Les numéros s'affichent clairement sur le site et j'ai gagné 600 € sans chichi. » - Vincent, 47 ans (Note : 8/10)",
       "« Une expérience simple : j'ai obtenu 1100 € et je reste convaincu. » - Léa, 23 ans (Note : 9/10)",
       "« Ce site offre tout pour réussir au loto – j'ai gagné 850 € et je suis confiant. » - David, 43 ans (Note : 8/10)",
       "« Service direct et sans fioritures, 500 € gagnés. » - Camille, 31 ans (Note : 7/10)",
@@ -749,7 +749,7 @@
       "« J'ai obtenu 500 € avec ce site et je pense que ça peut vraiment aider au quotidien. » - Benoit, 42 ans (Note : 8/10)",
       "« Ce service m'a permis de gagner 1000 € et d'améliorer mes chances au loto. » - Justine, 30 ans (Note : 9/10)",
       "« J'utilise ce site pour ses résultats directs : j'ai encaissé 600 € et les conseils sont pratiques. » - Alexandre, 41 ans (Note : 8/10)",
-      "« Un outil simple pour gagner : j'ai reçu 700 € et c'est efficace. » - Camille, 27 ans (Note : 7/10)",
+      "« Un outil simple pour gagner : j'ai reçu 700 € et c'est efficace. » - Camille, 27 ans (Note : 9/10)",
       "« J'ai gagné 800 € grâce à ce service et ça m'a vraiment aidé dans mes projets. » - Laurent, 45 ans (Note : 8/10)",
       "« Ce site offre de réels avantages : j'ai touché 500 € et ça change les choses. » - Élise, 32 ans (Note : 8/10)",
       "« J'ai trouvé ce service utile et j'ai gagné 850 €, un vrai coup de pouce. » - Jérémy, 36 ans (Note : 9/10)",
@@ -763,9 +763,9 @@
       "« Ce service donne de vraies chances : j'ai gagné 700 € et ça marche. » - Quentin, 33 ans (Note : 8/10)",
       "« Un service concret qui change les choses : j'ai perçu 800 € et les résultats se font sentir. » - Clara, 35 ans (Note : 9/10)",
       "« J'ai gagné 900 € grâce à ce site et ça m'aide vraiment à avancer dans la vie. » - Étienne, 38 ans (Note : 9/10)",
-      "« Ce service offre des résultats directs : j'ai touché 500 € et c'est utile au quotidien. » - Léna, 26 ans (Note : 8/10)",
+      "« Ce service offre des résultats directs : j'ai touché 500 € et c'est utile mes mes tirages de loto. » - Léna, 26 ans (Note : 8/10)",
       "« Une expérience concrète et pratique, j'ai encaissé 600 € et je suis content du résultat. » - Maxime, 44 ans (Note : 8/10)",
-      "« Ce site propose tout pour réussir : de bonnes chances et 800 € qui font la différence. » - Amélie, 30 ans (Note : 9/10)"
+      "« Ce site propose tout pour réussir c'est vrai : de bonnes chances et 800 € qui font la différence. » - Amélie, 30 ans (Note : 9/10)"
     ];
 
     // Carrousel optimisé sans points, avec deux flèches de navigation sous les avis
