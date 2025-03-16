@@ -90,16 +90,23 @@
     .dynamic-phrase {
       font-family: 'Cinzel', serif;
       font-style: italic;
-      font-size: 2rem; /* Double de la taille précédente */
+      font-size: 2rem; /* Taille doublée */
       color: var(--neon-light);
       text-shadow: 0 0 5px var(--neon-reflect), 0 0 10px var(--neon-reflect);
       transform: skew(-5deg);
       margin: 1.5rem 0;
       padding: 0.5rem;
     }
-    /* Balise speak pour une lecture optimale par les assistants vocaux */
-    speak {
-      display: block;
+    /* Utilisation de <span lang="fr-FR"> pour les assistants vocaux avec une pause */
+    .dynamic-phrase span {
+      display: inline;
+      font-size: inherit;
+    }
+    .dynamic-phrase .pause {
+      display: inline;
+      margin: 0 0.5rem;
+      /* Pour simuler une pause lors de la lecture vocale */
+      /* Note : la durée réelle de la pause dépendra de l'assistant vocal */
     }
     h1 {
       font-family: 'Cinzel', serif;
@@ -144,6 +151,10 @@
       color: var(--text-light);
       padding: 1rem;
       border-radius: 4px;
+    }
+    /* Dans le texte d'introduction, on affiche désormais "en [mois année]" */
+    .intro-text span.dynamicMonthYear {
+      font-weight: bold;
     }
     section {
       background: var(--section-bg);
@@ -208,6 +219,11 @@
       background: linear-gradient(45deg, var(--donation-start), var(--donation-end));
       border: 2px solid var(--donation-end);
       color: var(--text-light);
+    }
+    /* Le numéro chance sera entouré de deux étoiles jaunes */
+    .chance-number {
+      color: #FFD700;
+      font-weight: bold;
     }
     .don-btn {
       min-width: 200px;
@@ -362,29 +378,13 @@
       transform: scale(1.05);
     }
     @media (max-width: 600px) {
-      .container {
-        padding: 15px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
-      .result {
-        font-size: 1.5rem;
-      }
-      #draggableContact {
-        width: 60px;
-        height: 60px;
-      }
-      .subscribe-section form {
-        flex-direction: column;
-      }
-      .carousel-item {
-        font-size: 0.9rem;
-        padding: 1rem;
-      }
+      .container { padding: 15px; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .result { font-size: 1.5rem; }
+      #draggableContact { width: 60px; height: 60px; }
+      .subscribe-section form { flex-direction: column; }
+      .carousel-item { font-size: 0.9rem; padding: 1rem; }
       .btn, .don-btn, .email-btn, .subscribe-section button {
         padding: 0.75rem 1.5rem;
         font-size: 1.2rem;
@@ -434,7 +434,7 @@
         {"@type": "Question", "name": "Comment recevoir les numéros Loto par e-mail ?", "acceptedAnswer": {"@type": "Answer", "text": "Inscrivez-vous via notre formulaire, et les prédictions vous parviennent directement dans votre boîte e-mail."}},
         {"@type": "Question", "name": "Combien coûte une prédiction Loto ?", "acceptedAnswer": {"@type": "Answer", "text": "Les prédictions de base sont gratuites via l’inscription. Des services premium, comme la voyance, débutent à 22€."}},
         {"@type": "Question", "name": "L’IA peut-elle prédire un tirage exact ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, l’IA optimise les grilles mais ne peut garantir un tirage exact, car le Loto reste aléatoire."}},
-        {"@type": "Question", "name": "Frederick utilise-t-il la voyance pour les prédictions ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, son intuition spirituelle complète l’analyse IA pour des grilles encore plus puissantes."}},
+        {"@type": "Question", "name": "Frederick utilise-t-il la voyance pour les prédictions ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, son intuition spirituelle complète l’analyse IA pour des prédictions encore plus puissantes."}},
         {"@type": "Question", "name": "Les prédictions fonctionnent-elles pour l’Euromillions ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, nos grilles sont optimisées uniquement pour le Loto français, pas l’Euromillions."}},
         {"@type": "Question", "name": "Comment maximiser mes chances au Loto ?", "acceptedAnswer": {"@type": "Answer", "text": "Utilisez nos grilles IA, jouez régulièrement, et combinez avec une consultation de Frederick pour un ressenti personnalisé."}},
         {"@type": "Question", "name": "Puis-je demander une voyance Loto par téléphone ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, pour 22€, Frederick offre une voyance personnalisée par téléphone pour vos numéros chanceux."}},
@@ -542,7 +542,8 @@
       </picture>
       <!-- Nouvelle phrase stylisée sous le logo pour assistants vocaux -->
       <div class="dynamic-phrase">
-        <speak>comment gagner au loto en <span id="dynamicDate"></span></speak>
+        <span lang="fr-FR">comment gagner au loto en <span id="dynamicDate"></span></span>
+        <p>Pause <span aria-hidden="true">500ms</span> ici</p>
       </div>
       <!-- Boutons de navigation -->
       <nav class="nav-container" role="navigation" aria-label="Menu principal">
@@ -552,7 +553,7 @@
         <a href="#servicesSection" onclick="trackClick('Nav_Services')" aria-label="Services nécessaires pour gagner au Loto">Services nécessaires pour gagner au Loto</a>
       </nav>
       <div class="intro-text" role="region" aria-label="Introduction">
-        <strong>Boostez vos chances de gagner gros</strong> au <strong>Loto français</strong> grâce à nos <strong>grilles spécialement conçues pour la "Française de jeux"</strong>, ultra-optimisées par la <strong>technologie la plus performante</strong> en <span id="dynamicYear"></span>. Avec nos <strong>analyses historiques précises</strong>, notre <strong>algorithme avancé</strong> de pointe associé à l’<strong>expertise inégalée</strong> de notre voyant Frederick, chaque prédiction est minutieusement élaborée pour vous offrir les <strong>numéros gagnants</strong> et des <strong>stratégies exclusives</strong>. Ne laissez pas passer cette opportunité exceptionnelle d’<strong>augmenter votre potentiel de gain</strong> et de transformer votre vie grâce à des choix intelligents et performants... gratuitement!
+        <strong>Boostez vos chances de gagner gros</strong> au <strong>Loto français</strong> grâce à nos <strong>grilles spécialement conçues pour la "Française de jeux"</strong>, ultra-optimisées par la <strong>technologie la plus performante</strong> en <span id="dynamicMonthYear"></span>. Avec nos <strong>analyses historiques précises</strong>, notre <strong>algorithme avancé</strong> de pointe associé à l’<strong>expertise inégalée</strong> de notre voyant Frederick, chaque prédiction est minutieusement élaborée pour vous offrir les <strong>numéros gagnants</strong> et des <strong>stratégies exclusives</strong>. Ne laissez pas passer cette opportunité exceptionnelle d’<strong>augmenter votre potentiel de gain</strong> et de transformer votre vie grâce à des choix intelligents et performants... gratuitement!
       </div>
     </header>
     <main role="main">
@@ -620,14 +621,15 @@
 
   <!-- Scripts optimisés -->
   <script defer>
-    // Mise à jour dynamique pour le header et le footer
+    // Mise à jour dynamique :
+    // Pour la phrase sous le logo ("comment gagner au loto en [mois année]")
     const now = new Date();
     const currentYear = now.getFullYear();
     const currentMonth = now.toLocaleString('fr-FR', { month: 'long' });
-    // Dans la phrase sous le logo, affichage du mois et de l'année (ex. "mars 2025")
+    // Mise à jour pour la phrase stylisée sous le logo
     document.getElementById("dynamicDate").textContent = currentMonth + " " + currentYear;
-    // Dans l'intro, l'élément "dynamicYear" affiche uniquement l'année
-    document.getElementById("dynamicYear").textContent = currentYear;
+    // Dans le texte d'introduction, afficher "en [mois année]"
+    document.getElementById("dynamicMonthYear").textContent = currentMonth + " " + currentYear;
     // Mise à jour du footer (uniquement l'année)
     document.getElementById("current-year").textContent = currentYear;
 
@@ -684,15 +686,31 @@
       return [...selected, chance];
     }
 
-    // Calcul de la prochaine date de tirage avec balise time pour accessibilité
+    // Calcul de la prochaine date de tirage avec horaire dynamique :
+    // Si c'est un jour de tirage (lundi, mercredi, samedi) et avant 20h10, le tirage est aujourd'hui à 20h20.
+    // Sinon, le prochain tirage est affiché avec une heure de 20h10.
     function getNextDrawDate() {
       const now = new Date();
       const drawDays = [1, 3, 6]; // Lundi, Mercredi, Samedi
-      const day = now.getDay();
-      let daysAhead = drawDays.find(d => d >= day) - day || (7 - day + drawDays[0]);
-      if (daysAhead < 0) daysAhead += 7;
-      now.setDate(now.getDate() + daysAhead);
-      return now;
+      const currentDay = now.getDay();
+      const currentHours = now.getHours();
+      const currentMinutes = now.getMinutes();
+      let nextDraw = new Date(now);
+      let isDrawDay = drawDays.includes(currentDay);
+      if (isDrawDay && (currentHours < 20 || (currentHours === 20 && currentMinutes < 10))) {
+        // Aujourd'hui, tirage à 20h20
+        nextDraw.setHours(20, 20, 0, 0);
+      } else {
+        // Chercher le prochain jour de tirage
+        let daysToAdd = 1;
+        while (!drawDays.includes((currentDay + daysToAdd) % 7)) {
+          daysToAdd++;
+        }
+        nextDraw.setDate(now.getDate() + daysToAdd);
+        // Définir l'heure à 20h10 pour le prochain tirage
+        nextDraw.setHours(20, 10, 0, 0);
+      }
+      return nextDraw;
     }
 
     // Mise à jour du DOM pour les prédictions avec balise <time>
@@ -702,14 +720,14 @@
       try {
         const data = await fetchLotoData();
         const nextDrawDate = getNextDrawDate();
-        const nextDrawText = nextDrawDate.toLocaleDateString('fr-FR') + ' | 20:20';
+        const nextDrawText = nextDrawDate.toLocaleDateString('fr-FR') + ' | ' + nextDrawDate.toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'});
         const isoDate = nextDrawDate.toISOString();
-        // Affichage dans une balise <time> pour une meilleure lecture par les assistants vocaux
         document.getElementById("draw-time").textContent = nextDrawText;
         document.getElementById("draw-time").setAttribute("datetime", isoDate);
         nextDrawEl.innerHTML = `Pour le prochain tirage du Loto (et non l’Euromillions) : <time id="draw-time" datetime="${isoDate}">${nextDrawText}</time>`;
         const grid = computeOptimizedGrid(data.history);
-        predictionEl.textContent = `${grid.slice(0, 5).join(" - ")} - Chance : ${grid[5]}`;
+        // Le dernier élément (numéro chance) est entouré de deux étoiles jaunes
+        predictionEl.innerHTML = `${grid.slice(0, 5).join(" - ")} - Chance : **<span class="chance-number">${grid[5]}</span>**`;
       } catch (error) {
         console.error("Erreur lors de la génération des prédictions :", error);
         predictionEl.textContent = "Erreur lors du chargement.";
@@ -717,7 +735,7 @@
     }
     getAdvancedPredictions();
 
-    // Carrousel d'avis
+    // Carrousel d'avis accessible
     const reviews = [
       "« J'ai utilisé cette stratégie et gagné 500 € – simple et efficace. » - Clara, 29 ans (Note : 8/10)",
       "« Ce service m'a permis d'encaisser 300 €. » - Thomas, 35 ans (Note : 7/10)",
@@ -732,6 +750,7 @@
       reviews.forEach((review, index) => {
         const item = document.createElement('div');
         item.classList.add('carousel-item');
+        item.setAttribute("role", "listitem");
         item.textContent = review;
         if (index === 0) item.classList.add('active');
         carouselInner.appendChild(item);
