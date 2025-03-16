@@ -618,6 +618,12 @@
     document.getElementById("current-year").textContent = currentYear;
     document.getElementById("dynamicYear").textContent = currentYear;
 
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.toLocaleString('fr-FR', { month: 'long' });
+    document.getElementById("dynamicDate").textContent = currentMonth + " " + currentYear;
+
+
     // Fonction de suivi
     function trackClick(eventLabel) {
       console.log(`Tracking: ${eventLabel}`);
