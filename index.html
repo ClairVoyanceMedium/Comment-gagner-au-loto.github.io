@@ -811,16 +811,20 @@
     });
 
     // Gestion de l’inscription
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     function handleSubscribe(event) {
-      event.preventDefault();
-      const email = event.target.querySelector('input[type="email"]').value;
-      if (emailRegex.test(email)) {
-        window.open(`mailto:contact.clairvoyancemedium@gmail.com?subject=${encodeURIComponent("voici mon email pour newsletter")}&body=${encodeURIComponent("Email du client : " + email)}`, "_blank");
-      } else {
-        alert("Veuillez entrer une adresse e-mail valide.");
-      }
-    }
+  event.preventDefault();
+  const email = event.target.querySelector('input[type="email"]').value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (emailRegex.test(email)) {
+    // Pré-remplissage du sujet et du corps du message
+    const subject = "Inscription à la newsletter de ClairvoyanceMedium.com";
+    const body = "Bonjour,\n\nVoici mon adresse email pour l'inscription à la newsletter : " + email + "\n\nCordialement,";
+    // Ouvre le client de messagerie avec le mailto pré-rempli
+    window.location.href = `mailto:contact.clairvoyancemedium@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  } else {
+    alert("Veuillez entrer une adresse e-mail valide.");
+  }
+}
 
     // Icône déplaçable
     const draggableContact = document.getElementById("draggableContact");
