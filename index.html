@@ -545,7 +545,7 @@
         <a href="#servicesSection" onclick="trackClick('Nav_Services')">Services nécessaires pour gagner au Loto</a>
       </div>
       <div class="intro-text" role="region" aria-label="Introduction">
-        <strong>Boostez vos chances de gagner gros</strong> au <strong>Loto français</strong> grâce à nos <strong>grilles spécialement conçues pour la "Française de jeux"</strong>, ultra-optimisées par la <strong>technologie la plus performante</strong> de <span id="dynamicDate"></span>. Avec nos <strong>analyses historiques précises</strong>, notre <strong>algorithme avancé</strong> de pointe associé à l’<strong>expertise inégalée</strong> de notre voyant Frederick, chaque prédiction est minutieusement élaborée pour vous offrir les <strong>numéros gagnants</strong> et des <strong>stratégies exclusives</strong>. Ne laissez pas passer cette opportunité exceptionnelle d’<strong>augmenter votre potentiel de gain</strong> et de transformer votre vie grâce à des choix intelligents et performants... gratuitement!
+        <strong>Boostez vos chances de gagner gros</strong> au <strong>Loto français</strong> grâce à nos <strong>grilles spécialement conçues pour la "Française de jeux"</strong>, ultra-optimisées par la <strong>technologie la plus performante</strong> de <span id="dynamicYear"></span>. Avec nos <strong>analyses historiques précises</strong>, notre <strong>algorithme avancé</strong> de pointe associé à l’<strong>expertise inégalée</strong> de notre voyant Frederick, chaque prédiction est minutieusement élaborée pour vous offrir les <strong>numéros gagnants</strong> et des <strong>stratégies exclusives</strong>. Ne laissez pas passer cette opportunité exceptionnelle d’<strong>augmenter votre potentiel de gain</strong> et de transformer votre vie grâce à des choix intelligents et performants... gratuitement!
       </div>
     </header>
     <main>
@@ -614,11 +614,10 @@
   <!-- Scripts optimisés -->
   <script defer>
     // Années dynamiques
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.toLocaleString('fr-FR', { month: 'long' });
+    const currentYear = new Date().getFullYear();
+    document.getElementById("current-year").textContent = currentYear;
+    document.getElementById("dynamicYear").textContent = currentYear;
     document.getElementById("dynamicDate").textContent = currentMonth + " " + currentYear;
-
 
     // Fonction de suivi
     function trackClick(eventLabel) {
