@@ -816,7 +816,7 @@
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (emailRegex.test(email)) {
     // Pré-remplissage du sujet et du corps du message
-    const subject = "Inscription à la newsletter de ClairvoyanceMedium.com";
+    const subject = "Gagner aux Jeux: Inscription à la newsletter ClairvoyanceMedium.com";
     const body = "Bonjour Frederick,\n\nVoici mon adresse email pour l'inscription à la newsletter : " + email + "\n\nCordialement,";
     // Ouvre le client de messagerie avec le mailto pré-rempli
     window.location.href = `mailto:contact.clairvoyancemedium@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
